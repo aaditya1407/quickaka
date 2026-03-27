@@ -10,7 +10,7 @@ const WhyChooseUs = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-accent text-sm font-semibold uppercase tracking-wider">
-            Why QuicKaka
+            Why choose QuicKaka
           </span>
           <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2">
             The Quality You Expect,

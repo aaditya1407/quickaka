@@ -4,12 +4,12 @@ import Container from "./Container";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
-  { label: "HOME", to: "/" },
-  { label: "SERVICES", to: "/services" },
-  { label: "HOW IT WORKS", to: "/how-it-works" },
-  { label: "ABOUT", to: "/about" },
-  { label: "PARTNER", to: "/partner" },
-  { label: "CONTACT", to: "/contact" },
+  { label: "Home", to: "/" },
+  { label: "Services", to: "/services" },
+  { label: "How It Works", to: "/how-it-works" },
+  { label: "About", to: "/about" },
+  { label: "Partner", to: "/partner" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar = () => {
@@ -35,20 +35,20 @@ const Navbar = () => {
         `}
     >
       <Container>
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-18 md:h-20">
           {/* Logo */}
           <Link to="/">
             <div className="flex">
               <img
                 src="/mainLogo.png"
                 alt="QuicKaka"
-                className={`w-32 md:w-32 transition-all duration-300 mt-2`}
+                className={`w-30 md:w-32 transition-all duration-300 mt-2`}
               />
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -79,7 +79,11 @@ const Navbar = () => {
 
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-primary rounded-lg hover:bg-gray-100 transition-colors"
+              className={`md:hidden p-2 rounded-lg transition-colors ${
+                scrolled
+                  ? "text-primary hover:bg-gray-100"
+                  : "text-white hover:bg-white/15"
+              }`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X size={22} /> : <Menu size={22} />}
@@ -89,21 +93,31 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-border py-4 space-y-1">
+          <div
+            className={`md:hidden py-4 space-y-1 border-t ${
+              scrolled
+                ? "bg-white/95 backdrop-blur-md border-gray-100"
+                : "bg-primary/90 backdrop-blur-md border-white/10"
+            }`}
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
-                className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
-                  location.pathname === link.to
-                    ? "text-primary bg-gray-50"
-                    : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                className={`block px-4 py-2.5 text-sm font-medium rounded-lg mx-2 transition-colors ${
+                  scrolled
+                    ? location.pathname === link.to
+                      ? "text-primary bg-gray-50"
+                      : "text-gray-600 hover:text-primary hover:bg-gray-50"
+                    : location.pathname === link.to
+                      ? "text-white bg-white/15"
+                      : "text-white/80 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
-            <div className="pt-2 px-3">
+            <div className="pt-2 px-4">
               <Link
                 to="/contact"
                 className="block w-full text-center bg-accent text-white px-5 py-2.5 rounded-xl text-sm font-semibold hover:bg-accent-dark transition-colors"

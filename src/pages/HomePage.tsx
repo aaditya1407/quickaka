@@ -1,5 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import Hero from "../components/home/Hero";
+import TrustBadges from "../components/home/TrustBadges";
 import Categories from "../components/home/Categories";
 import HowItWorks from "../components/home/HowItWorks";
 import WhyChooseUs from "../components/home/WhyChooseUs";
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Navbar />
       <main className="relative">
         <Hero />
+        <TrustBadges />
         <Categories />
         <HowItWorks />
         <WhyChooseUs />
