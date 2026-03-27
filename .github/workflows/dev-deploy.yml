@@ -1,0 +1,48 @@
+name: Build & Deploy to Public Pages Repo
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: "npm"
+
+      - name: Show versions (debug)
+        run: |
+          node -v
+          npm -v
+          node -p "process.platform + ' ' + process.arch"
+
+      # Fresh install on Linux to regenerate a correct lockfile
+      - name: Fresh install on Linux (regenerate lock)
+        run: |
+          rm -rf node_modules package-lock.json
+          npm install --no-audit --no-fund
+
+      - name: Build
+        run: |
+          npm run build
+          echo "OUT_DIR=dist" >> $GITHUB_ENV
+
+      - name: Deploy to public repo
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ${{ env.OUT_DIR }}
+          publish_branch: gh-pages
+          external_repository: BBBSolutions/quickaka-dev
+          personal_token: ${{ secrets.PUBLIC_REPO_TOKEN }}
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          cname: quickaka-dev.the3bsolutions.com
