@@ -22,9 +22,9 @@ const Hero = () => {
           <motion.img
             src="/title.png"
             alt="QuicKaka"
-            className="w-[65%] sm:w-[70%] object-cover drop-shadow-2xl absolute -top-20"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
+            className="w-[65%] sm:w-[70%] object-cover drop-shadow-2xl absolute -top-15"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           />
 

@@ -58,7 +58,7 @@ const PartnerPage = () => {
       <Navbar />
       <main>
         {/* Hero Banner */}
-        <section className="relative overflow-hidden h-[60vh]">
+        <section className="relative overflow-hidden h-[60vh] md:h-[70vh]">
           <img
             src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1600&h=600&fit=crop"
             alt=""

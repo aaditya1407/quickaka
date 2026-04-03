@@ -113,19 +113,19 @@ const Footer = () => {
                 <li className="flex items-center gap-3">
                   <Mail size={16} className="text-accent shrink-0" />
                   <a
-                    href="mailto:contact@quickaka.com"
+                    href="mailto:sales@gsenterprise.org.in"
                     className="text-sm text-blue-200/60 hover:text-white transition-colors"
                   >
-                    contact@quickaka.com
+                    sales@gsenterprise.org.in
                   </a>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone size={16} className="text-accent shrink-0" />
                   <a
-                    href="tel:+919999999999"
+                    href="tel:+916263228873"
                     className="text-sm text-blue-200/60 hover:text-white transition-colors"
                   >
-                    +91 99999 99999
+                    +91 6263228873
                   </a>
                 </li>
                 <li className="flex items-center gap-3">

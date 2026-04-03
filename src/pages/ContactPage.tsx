@@ -146,10 +146,10 @@ const ContactPage = () => {
                         Email
                       </h4>
                       <a
-                        href="mailto:contact@quickaka.com"
+                        href="mailto:sales@gsenterprise.org.in"
                         className="text-sm text-gray-500 hover:text-accent transition-colors mt-0.5 block"
                       >
-                        contact@quickaka.com
+                        sales@gsenterprise.org.in
                       </a>
                     </div>
                   </div>
@@ -163,10 +163,10 @@ const ContactPage = () => {
                         Phone
                       </h4>
                       <a
-                        href="tel:+919999999999"
+                        href="tel:+916263228873"
                         className="text-sm text-gray-500 hover:text-accent transition-colors mt-0.5 block"
                       >
-                        +91 99999 99999
+                        +91 6263228873
                       </a>
                     </div>
                   </div>
