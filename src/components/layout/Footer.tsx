@@ -145,6 +145,11 @@ const Footer = () => {
             © {new Date().getFullYear()} QuicKaka. All rights reserved.
           </p>
           <p className="text-xs text-blue-200/40">
+            <Link to="/terms" className="text-xs text-blue-200/40 hover:text-white transition-colors">
+              Terms & Conditions
+            </Link>
+          </p>
+          <p className="text-xs text-blue-200/40">
             Made with ❤️ in Bhopal
           </p>
         </div>
