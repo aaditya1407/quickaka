@@ -5,7 +5,7 @@ import Container from "../components/layout/Container";
 import { categories } from "../data/services";
 import * as LucideIcons from "lucide-react";
 import type React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Layers } from "lucide-react";
 
 const ServicesPage = () => {
   return (
@@ -23,6 +23,7 @@ const ServicesPage = () => {
           <div className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
             <Container>
               <div className="max-w-3xl">
+                <Layers size={40} className="text-accent mb-4" />
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">
                   Our Services
                 </span>

@@ -8,6 +8,7 @@ import {
   ThumbsUp,
   ArrowRight,
   Handshake,
+  Lightbulb,
 } from "lucide-react";
 
 const steps = [
@@ -50,6 +51,7 @@ const HowItWorksPage = () => {
           <div className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
             <Container>
               <div className="max-w-3xl">
+                <Lightbulb size={40} className="text-accent mb-4" />
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">
                   How It Works
                 </span>

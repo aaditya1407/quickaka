@@ -7,6 +7,7 @@ import {
   MapPin,
   Clock,
   Send,
+  MessageSquare,
 } from "lucide-react";
 
 const ContactPage = () => {
@@ -25,6 +26,7 @@ const ContactPage = () => {
           <div className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
             <Container>
               <div className="max-w-3xl">
+                <MessageSquare size={40} className="text-accent mb-4" />
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">
                   Contact Us
                 </span>

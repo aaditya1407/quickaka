@@ -1,6 +1,7 @@
 import Container from "../components/layout/Container";
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
+import { Shield } from "lucide-react";
 
 const TermsPage = () => {
   return (
@@ -18,6 +19,7 @@ const TermsPage = () => {
           <div className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
             <Container>
               <div className="max-w-3xl">
+                <Shield size={40} className="text-accent mb-4" />
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">
                  TERMS & CONDITIONS
                 </span>

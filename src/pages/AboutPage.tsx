@@ -11,6 +11,7 @@ import {
   MapPin,
   Heart,
   ArrowRight,
+  Info,
 } from "lucide-react";
 
 const goals = [
@@ -52,6 +53,7 @@ const AboutPage = () => {
           <div className="relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
             <Container>
               <div className="max-w-3xl">
+                <Info size={40} className="text-accent mb-4" />
                 <span className="text-accent text-sm font-semibold uppercase tracking-wider">
                   About Us
                 </span>
