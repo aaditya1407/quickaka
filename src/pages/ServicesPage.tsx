@@ -1,6 +1,6 @@
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import HeroBanner from "../components/services/HeroBanner";
+import HeroBanner from "../components/services/ServiceHero";
 import ServiceCategories from "../components/services/ServiceCategories";
 
 const ServicesPage = () => {

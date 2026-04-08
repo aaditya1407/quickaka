@@ -1,7 +1,7 @@
 import { Layers } from "lucide-react";
 import Container from "../layout/Container";
 
-const HeroBanner = () => {
+const ServiceHero = () => {
   return (
     <section className="relative overflow-hidden h-[60vh]">
       <img
@@ -31,4 +31,4 @@ const HeroBanner = () => {
   );
 };
 
-export default HeroBanner;
+export default ServiceHero;
