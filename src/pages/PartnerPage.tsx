@@ -9,13 +9,8 @@ const PartnerPage = () => {
     <>
       <Navbar />
       <main>
-        {/* Hero Banner */}
         <PartnerHero />
-
-        {/* Why Partner */}
         <WhyPartner />
-
-        {/* How It Works for Partners */}
         <HowItWorksPartner />
       </main>
       <Footer />

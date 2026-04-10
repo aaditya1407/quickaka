@@ -1,6 +1,7 @@
 import { ArrowRight, Search, ThumbsUp, UserCheck } from "lucide-react";
 import Container from "../layout/Container";
 import { Link } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 const StepsDetail = () => {
   const steps = [
@@ -60,11 +61,14 @@ const StepsDetail = () => {
         </div>
 
         <div className="text-center mt-14">
-          <Link
-            to="/services"
-            className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors shadow-lg shadow-accent/20"
-          >
-            Browse Services <ArrowRight size={14} />
+          <Link to="/services">
+            <CustomButton size="lg" className="flex items-center gap-2 mx-auto group/cta">
+              Browse Services{" "}
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover/cta:translate-x-2"
+              />
+            </CustomButton>
           </Link>
         </div>
       </Container>

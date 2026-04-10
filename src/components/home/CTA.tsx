@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import { ArrowRight, Handshake } from "lucide-react";
+import CustomButton from "../ui/CustomButton";
 
 const CTA = () => {
   return (
@@ -16,12 +17,14 @@ const CTA = () => {
               Join thousands of happy Bhopal residents who trust QuicKaka for
               reliable, affordable services.
             </p>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors duration-200 shadow-lg shadow-accent/30 mt-6"
-            >
-              Explore Services
-              <ArrowRight size={16} />
+            <Link to="/services">
+              <CustomButton className="flex items-center gap-2 mt-6 group/cta">
+                Explore Services{" "}
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover/cta:translate-x-2"
+                />
+              </CustomButton>
             </Link>
           </div>
 
@@ -35,12 +38,17 @@ const CTA = () => {
               Are you a skilled professional in Bhopal? Join the QuicKaka family
               for consistent work, fair pay, and community pride.
             </p>
-            <Link
-              to="/partner"
-              className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-colors duration-200 border border-white/20"
-            >
-              Learn More
-              <ArrowRight size={14} />
+            <Link to="/partner">
+              <CustomButton
+                variant="outline"
+                className="flex items-center gap-2 mt-6 group/cta"
+              >
+                Learn More{" "}
+                <ArrowRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover/cta:translate-x-2"
+                />
+              </CustomButton>
             </Link>
           </div>
         </div>

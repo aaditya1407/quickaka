@@ -8,9 +8,7 @@ const ContactPage = () => {
     <>
       <Navbar />
       <main>
-        {/* Hero Banner */}
         <ContactHero />
-        {/* Contact Content */}
         <ContactContent />
       </main>
       <Footer />

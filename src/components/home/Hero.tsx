@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import { Search } from "lucide-react";
 import { motion } from "framer-motion";
+import CustomButton from "../ui/CustomButton";
 
 const Hero = () => {
   return (
@@ -80,17 +81,12 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Link
-              to="/services"
-              className="bg-accent hover:bg-accent-dark text-white px-8 py-3.5 rounded-xl text-sm font-bold transition-colors duration-200 shadow-lg shadow-accent/30"
-            >
-              Explore Services
+            <Link to="/services">
+              <CustomButton>Explore Services</CustomButton>
             </Link>
-            <Link
-              to="/partner"
-              className="bg-white/15 hover:bg-white/25 text-white px-8 py-3.5 rounded-xl text-sm font-bold transition-colors duration-200 backdrop-blur-sm border border-white/20"
-            >
-              Become a Partner
+
+            <Link to="/partner">
+              <CustomButton variant="outline">Become a Partner</CustomButton>
             </Link>
           </motion.div>
 

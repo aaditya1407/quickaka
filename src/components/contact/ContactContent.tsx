@@ -1,5 +1,6 @@
 import Container from "../layout/Container";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
+import CustomButton from "../ui/CustomButton";
 
 const ContactContent = () => {
   return (
@@ -69,13 +70,16 @@ const ContactContent = () => {
                   className="w-full px-4 py-3 rounded-xl border border-border text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all resize-none"
                 />
               </div>
-              <button
+              <CustomButton
                 type="submit"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-dark text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors shadow-lg shadow-accent/20 cursor-pointer"
+                className="flex items-center gap-2 group/cta"
               >
-                <Send size={14} />
-                Send Message
-              </button>
+                Send Message{" "}
+                <Send
+                  size={16}
+                  className="transition-transform duration-300 group-hover/cta:translate-x-2"
+                />
+              </CustomButton>
             </form>
           </div>
 

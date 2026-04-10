@@ -9,11 +9,8 @@ const HowItWorksPage = () => {
     <>
       <Navbar />
       <main>
-        {/* Hero Banner */}
         <WorksHero />
-        {/* Steps Detail */}
         <StepsDetail />
-        {/* Partner Preview */}
         <Partner />
       </main>
       <Footer />

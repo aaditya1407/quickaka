@@ -1,6 +1,7 @@
 import { ArrowRight, Handshake } from "lucide-react";
 import Container from "../layout/Container";
 import { Link } from "react-router-dom";
+import CustomButton from "../ui/CustomButton";
 
 const Partner = () => {
   return (
@@ -16,11 +17,18 @@ const Partner = () => {
             Join the QuicKaka family for consistent work, fair pay, and
             community pride.
           </p>
-          <Link
-            to="/partner"
-            className="inline-flex items-center gap-2 bg-primary hover:bg-primary-light text-white px-7 py-3.5 rounded-xl text-sm font-semibold transition-colors"
-          >
-            Learn More <ArrowRight size={14} />
+          <Link to="/partner">
+            <CustomButton
+              variant="secondary"
+              size="sm"
+              className="flex items-center gap-2 mx-auto group/cta"
+            >
+              Learn More{" "}
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover/cta:translate-x-2"
+              />
+            </CustomButton>
           </Link>
         </div>
       </Container>

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { motion, type HTMLMotionProps } from "framer-motion";
 
 const buttonVariants = cva(
-  "text-white font-bold transition-colors duration-200 shadow-lg",
+  "text-white font-bold transition-colors duration-300 shadow-lg",
   {
     variants: {
       variant: {
@@ -12,6 +12,7 @@ const buttonVariants = cva(
           "bg-accent hover:bg-accent-dark shadow-accent/30 cursor-pointer",
         outline:
           "bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/20 cursor-pointer",
+        secondary: "bg-primary hover:bg-primary-light text-white cursor-pointer",
       },
       size: {
         default: "px-8 py-3.5 rounded-xl text-sm",

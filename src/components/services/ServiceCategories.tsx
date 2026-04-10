@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import type React from "react";
 import Container from "../layout/Container";
 import { categories } from "../../data/services";
+import CustomButton from "../ui/CustomButton";
 
 /* ─── shared easing ─── */
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -62,7 +63,9 @@ const fadeUp = {
 
 /* ─── component ─── */
 const ServiceCategories = () => {
-  const [openId, setOpenId] = useState<string | null>(categories[0]?.id ?? null);
+  const [openId, setOpenId] = useState<string | null>(
+    categories[0]?.id ?? null,
+  );
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-60px" });
 
@@ -263,15 +266,17 @@ const ServiceCategories = () => {
           <p className="text-gray-400 mb-5 text-sm">
             Can't find what you're looking for?
           </p>
-          <Link
-            to="/contact"
-            className="group/cta inline-flex items-center gap-3 bg-accent hover:bg-accent-dark text-white px-8 py-4 rounded-2xl text-sm font-bold transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30"
-          >
-            Contact Us
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover/cta:translate-x-1"
-            />
+          <Link to="/contact">
+            <CustomButton
+              size="lg"
+              className="flex items-center gap-2 mx-auto group/cta"
+            >
+              Contact Us
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover/cta:translate-x-2"
+              />
+            </CustomButton>
           </Link>
         </motion.div>
       </Container>

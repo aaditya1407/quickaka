@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react";
 import type React from "react";
 import Container from "../layout/Container";
 import { categories } from "../../data/services";
+import CustomButton from "../ui/CustomButton";
 
 /* ─── shared easing ─── */
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -192,7 +193,10 @@ const Categories = () => {
 
                       <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
                         Explore
-                        <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        <ArrowRight
+                          size={14}
+                          className="transition-transform duration-300 group-hover:translate-x-1"
+                        />
                       </span>
                     </div>
 
@@ -217,15 +221,17 @@ const Categories = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.8, ease }}
         >
-          <Link
-            to="/services"
-            className="group/cta inline-flex items-center gap-3 bg-primary hover:bg-primary-light text-white px-8 py-4 rounded-2xl text-sm font-bold transition-all duration-300 shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30"
-          >
-            Explore All Services
-            <ArrowRight
-              size={16}
-              className="transition-transform duration-300 group-hover/cta:translate-x-1"
-            />
+          <Link to="/services">
+            <CustomButton
+              variant="secondary"
+              className="flex items-center gap-2 mx-auto group/cta"
+            >
+              Explore All Services{" "}
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover/cta:translate-x-2"
+              />
+            </CustomButton>
           </Link>
         </motion.div>
       </Container>

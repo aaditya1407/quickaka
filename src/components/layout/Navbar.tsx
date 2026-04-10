@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Container from "./Container";
 import { Menu, X } from "lucide-react";
+import CustomButton from "../ui/CustomButton";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -72,9 +73,11 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <Link
               to="/contact"
-              className={`hidden md:inline-flex px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-sm hover:shadow-md bg-accent text-white hover:bg-accent-dark`}
+              className={`hidden md:inline-flex`}
             >
-              Book a Service
+              <CustomButton className="px-5 py-2.5 rounded-xl text-sm">
+                Book a Service
+              </CustomButton>
             </Link>
 
             <button
