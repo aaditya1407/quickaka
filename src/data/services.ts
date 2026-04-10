@@ -3,7 +3,9 @@ export const categories = [
     id: "home-maintenance",
     title: "Home Maintenance & Repair",
     shortTitle: "Home Repair",
+    tagline: "We Fix, You Relax",
     description: "From leaky taps to full AC servicing — your home stays in top shape.",
+    stat: "10+",
     services: [
       "Plumber",
       "Electrician",
@@ -18,12 +20,17 @@ export const categories = [
     ],
     icon: "Wrench",
     color: "#3B82F6",
+    gradient: "from-blue-500 to-indigo-600",
+    image:
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
   },
   {
     id: "construction-interior",
     title: "Construction & Interior Works",
     shortTitle: "Construction",
+    tagline: "Build Your Vision",
     description: "Build, renovate, or redesign — we bring your vision to life.",
+    stat: "5+",
     services: [
       "Carpenter",
       "Property Management",
@@ -33,12 +40,17 @@ export const categories = [
     ],
     icon: "HardHat",
     color: "#8B5CF6",
+    gradient: "from-violet-500 to-purple-600",
+    image:
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
   },
   {
     id: "home-help-personal",
     title: "Home Help & Personal Care",
     shortTitle: "Home Help",
+    tagline: "Care at Your Doorstep",
     description: "Everyday household support and personal wellness at your doorstep.",
+    stat: "8+",
     services: [
       "Maid",
       "Cook",
@@ -51,12 +63,17 @@ export const categories = [
     ],
     icon: "HeartHandshake",
     color: "#EC4899",
+    gradient: "from-pink-500 to-rose-600",
+    image:
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&q=80",
   },
   {
     id: "professional-legal",
     title: "Professional & Legal Support",
     shortTitle: "Professional",
+    tagline: "Expert Guidance, Simplified",
     description: "Expert guidance for legal, educational, and document needs.",
+    stat: "5+",
     services: [
       "Legal Advice",
       "RTO Support",
@@ -66,12 +83,17 @@ export const categories = [
     ],
     icon: "Scale",
     color: "#10B981",
+    gradient: "from-emerald-500 to-teal-600",
+    image:
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
   },
   {
     id: "events-lifestyle",
     title: "Events & Lifestyle",
     shortTitle: "Events",
+    tagline: "Celebrate in Style",
     description: "Celebrate in style — photography, catering, decorations, and more.",
+    stat: "6+",
     services: [
       "Photographer",
       "Catering",
@@ -82,12 +104,17 @@ export const categories = [
     ],
     icon: "PartyPopper",
     color: "#F59E0B",
+    gradient: "from-amber-500 to-orange-600",
+    image:
+      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
   },
   {
     id: "transport-auto",
     title: "Transport & Auto",
     shortTitle: "Transport",
+    tagline: "Move with Confidence",
     description: "Reliable rides and vehicle care, whenever you need them.",
+    stat: "3+",
     services: [
       "Travels (Taxis/Rentals)",
       "Drivers",
@@ -95,6 +122,9 @@ export const categories = [
     ],
     icon: "Car",
     color: "#06B6D4",
+    gradient: "from-cyan-500 to-blue-600",
+    image:
+      "https://images.unsplash.com/photo-1449965408869-ebd3fee7710f?w=800&q=80",
   },
 ];
 

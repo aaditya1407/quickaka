@@ -64,7 +64,7 @@ const TrustBadges = () => {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 text-center relative z-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center relative z-10">
           {badges.map((badge) => (
             <div
               key={badge.label}
