@@ -1,15 +1,17 @@
 import type { ReactNode } from "react";
 import { cn } from "../../lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
 const buttonVariants = cva(
   "text-white font-bold transition-colors duration-200 shadow-lg",
   {
     variants: {
       variant: {
-        action: "bg-accent hover:bg-accent-dark shadow-accent/30",
+        action:
+          "bg-accent hover:bg-accent-dark shadow-accent/30 cursor-pointer",
         outline:
-          "bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/20",
+          "bg-white/15 hover:bg-white/25 backdrop-blur-sm border border-white/20 cursor-pointer",
       },
       size: {
         default: "px-8 py-3.5 rounded-xl text-sm",
@@ -24,7 +26,7 @@ const buttonVariants = cva(
   },
 );
 
-type CustomButtonProps = React.ComponentProps<"button"> &
+type CustomButtonProps = HTMLMotionProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     children: ReactNode;
     asChild?: boolean;
@@ -38,13 +40,16 @@ function CustomButton({
   ...props
 }: CustomButtonProps) {
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.05, y: -2 }}
+      whileTap={{ scale: 0.9, y: 1 }}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
       data-slot="button"
       className={cn(buttonVariants({ variant, size }), className)}
       {...props}
     >
       {children}
-    </button>
+    </motion.button>
   );
 }
 
