@@ -12,7 +12,7 @@ const badges = [
     label: "Verified Professionals",
     stat: "100%",
     description: "Background-checked & trained experts",
-    gradient: "from-blue-500 to-indigo-600",
+    gradient: "from-emerald-500 to-teal-600",
   },
   {
     icon: Timer,
@@ -26,7 +26,7 @@ const badges = [
     label: "37+ Services",
     stat: "37+",
     description: "Categories covering every home need",
-    gradient: "from-emerald-500 to-teal-600",
+    gradient: "from-blue-500 to-indigo-600",
   },
   {
     icon: MapPinArea,

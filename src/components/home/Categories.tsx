@@ -1,9 +1,7 @@
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
-import * as LucideIcons from "lucide-react";
 import { ArrowRight } from "lucide-react";
-import type React from "react";
 import Container from "../layout/Container";
 import { categories } from "../../data/services";
 import CustomButton from "../ui/CustomButton";
@@ -15,7 +13,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const sectionHeader = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12 },
+    transition: { staggerChildren: 0.4 },
   },
 };
 
@@ -36,7 +34,7 @@ const cardVariants = {
     scale: 1,
     transition: {
       duration: 0.7,
-      delay: i * 0.1,
+      delay: i * 0.2,
       ease,
     },
   }),
@@ -52,7 +50,7 @@ const lineReveal = {
 
 const Categories = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
 
   return (
     <section
@@ -61,7 +59,7 @@ const Categories = () => {
     >
       {/* Subtle decorative dots */}
       <div
-        className="absolute inset-0 opacity-[0.018]"
+        className="absolute inset-0 opacity-[0.018] pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
           backgroundSize: "40px 40px",
@@ -107,111 +105,85 @@ const Categories = () => {
 
         {/* ─── Cards Grid ─── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
-          {categories.map((cat, index) => {
-            const IconComponent = (
-              LucideIcons as unknown as Record<
-                string,
-                React.ComponentType<{
-                  size?: number;
-                  className?: string;
-                  style?: React.CSSProperties;
-                }>
-              >
-            )[cat.icon];
+          {categories.map((cat, index) => (
+            <motion.div
+              key={cat.id}
+              custom={index}
+              variants={cardVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+              className="group relative rounded-2xl overflow-hidden cursor-pointer"
+              style={{ minHeight: "340px" }}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Multi-layer gradient overlay */}
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/20 transition-all duration-500 group-hover:from-black/95 group-hover:via-black/60" />
+              </div>
 
-            return (
-              <motion.div
-                key={cat.id}
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                animate={isInView ? "visible" : "hidden"}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
-                style={{ minHeight: "340px" }}
-              >
-                {/* Background Image */}
-                <div className="absolute inset-0">
-                  <img
-                    src={cat.image}
-                    alt={cat.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  {/* Multi-layer gradient overlay */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-black/20 transition-all duration-500 group-hover:from-black/95 group-hover:via-black/60" />
+              {/* Content Layer */}
+              <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-7">
+                {/* Top — Index + Icon */}
+                <div className="flex items-start justify-between">
+                  <span className="font-heading text-5xl font-extrabold text-white/10 leading-none select-none group-hover:text-white/40 transition-colors duration-500">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
                 </div>
 
-                {/* Content Layer */}
-                <div className="relative z-10 h-full flex flex-col justify-between p-6 md:p-7">
-                  {/* Top — Index + Icon */}
-                  <div className="flex items-start justify-between">
-                    <span className="font-heading text-5xl font-extrabold text-white/10 leading-none select-none group-hover:text-white/20 transition-colors duration-500">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                {/* Bottom — Info */}
+                <div>
+                  {/* Tagline */}
+                  <span className="text-accent text-xs font-bold uppercase tracking-[0.15em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
+                    {cat.tagline}
+                  </span>
 
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-sm border border-white/10 transition-all duration-500 group-hover:scale-110 group-hover:border-white/20"
-                      style={{ backgroundColor: `${cat.color}25` }}
-                    >
-                      {IconComponent && (
-                        <IconComponent
-                          size={22}
-                          className="transition-colors duration-300"
-                          style={{ color: cat.color }}
-                        />
-                      )}
-                    </div>
-                  </div>
+                  {/* Title */}
+                  <h3 className="font-heading text-xl md:text-2xl font-bold text-white mt-1 leading-snug">
+                    {cat.title}
+                  </h3>
 
-                  {/* Bottom — Info */}
-                  <div>
-                    {/* Tagline */}
-                    <span className="text-accent text-xs font-bold uppercase tracking-[0.15em] opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                      {cat.tagline}
-                    </span>
+                  {/* Description */}
+                  <p className="text-white/60 text-sm mt-2 leading-relaxed line-clamp-2">
+                    {cat.description}
+                  </p>
 
-                    {/* Title */}
-                    <h3 className="font-heading text-xl md:text-2xl font-bold text-white mt-1 leading-snug">
-                      {cat.title}
-                    </h3>
-
-                    {/* Description */}
-                    <p className="text-white/60 text-sm mt-2 leading-relaxed line-clamp-2">
-                      {cat.description}
-                    </p>
-
-                    {/* Service Pills + CTA */}
-                    <div className="mt-4 flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold text-white border border-white/15 backdrop-blur-sm"
-                          style={{ backgroundColor: `${cat.color}30` }}
-                        >
-                          {cat.stat} services
-                        </span>
-                      </div>
-
-                      <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 translate-x-[-8px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
-                        Explore
-                        <ArrowRight
-                          size={14}
-                          className="transition-transform duration-300 group-hover:translate-x-1"
-                        />
+                  {/* Service Pills + CTA */}
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold text-white border border-white/15 backdrop-blur-sm"
+                        style={{ backgroundColor: `${cat.color}30` }}
+                      >
+                        {cat.stat} services
                       </span>
                     </div>
 
-                    {/* Bottom accent line */}
-                    <div
-                      className="mt-4 h-[2px] rounded-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
-                      style={{
-                        background: `linear-gradient(90deg, ${cat.color}, transparent)`,
-                      }}
-                    />
+                    <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-accent opacity-0 translate-x-[-20px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500">
+                      Explore
+                      <ArrowRight
+                        size={14}
+                        className="transition-transform duration-300 group-hover:translate-x-1"
+                      />
+                    </span>
                   </div>
+
+                  {/* Bottom accent line */}
+                  <div
+                    className="mt-4 h-[2px] rounded-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-700"
+                    style={{
+                      background: `linear-gradient(90deg, ${cat.color}, transparent)`,
+                    }}
+                  />
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* ─── Bottom CTA ─── */}
