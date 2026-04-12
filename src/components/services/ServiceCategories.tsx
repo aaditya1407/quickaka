@@ -76,7 +76,7 @@ const lineReveal = {
   hidden: { scaleX: 0 },
   visible: {
     scaleX: 1,
-    transition: { duration: 0.8, delay: 0.3, ease },
+    transition: { duration: 1, ease },
   },
 };
 

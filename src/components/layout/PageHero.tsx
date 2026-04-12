@@ -63,12 +63,13 @@ const PageHero = ({
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
 
+
+  // this is used for parallax effect
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
   });
-
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.8]);
 
   const line1Chars = titleLine1.split("");
