@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Container from "../layout/Container";
-import { Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import { motion } from "framer-motion";
 import CustomButton from "../ui/CustomButton";
 
@@ -102,6 +102,24 @@ const Hero = () => {
           </motion.span>
         </div>
       </Container>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 0.8 }}
+      >
+        <span className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-medium">
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown size={18} className="text-white/30" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

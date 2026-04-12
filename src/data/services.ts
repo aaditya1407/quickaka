@@ -18,6 +18,7 @@ export const categories = [
       "Water Tank Cleaning",
       "House Painting",
     ],
+    icon: "PencilRuler",
     color: "#3B82F6",
     gradient: "from-blue-500 to-indigo-600",
     image:
@@ -37,6 +38,7 @@ export const categories = [
       "Interior Works",
       "Movers & Packers",
     ],
+    icon: "Building2",
     color: "#8B5CF6",
     gradient: "from-violet-500 to-purple-600",
     image:
@@ -59,6 +61,7 @@ export const categories = [
       "Doctor for Visit",
       "Elderly Care (Nursing)",
     ],
+    icon: "HandHeart",
     color: "#EC4899",
     gradient: "from-pink-500 to-rose-600",
     image:
@@ -78,6 +81,7 @@ export const categories = [
       "Bulk Printing / Photocopy",
       "Tuition",
     ],
+    icon: "Briefcase",
     color: "#10B981",
     gradient: "from-emerald-500 to-teal-600",
     image:
@@ -98,6 +102,7 @@ export const categories = [
       "Spiritual Services",
       "Pest Control",
     ],
+    icon: "Sparkles",
     color: "#F59E0B",
     gradient: "from-amber-500 to-orange-600",
     image:
@@ -115,6 +120,7 @@ export const categories = [
       "Drivers",
       "Mechanic (2 Wheeler)",
     ],
+    icon: "CarFront",
     color: "#06B6D4",
     gradient: "from-cyan-500 to-blue-600",
     image:

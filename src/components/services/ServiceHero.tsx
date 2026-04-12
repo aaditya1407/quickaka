@@ -71,9 +71,6 @@ const ServiceHero = () => {
         }}
       />
 
-      {/* Gradient fade at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-white to-transparent z-10" />
-
       {/* Content */}
       <div className="relative z-10 pt-32 pb-24 md:pt-40 md:pb-32 w-full">
         <Container>
@@ -166,24 +163,6 @@ const ServiceHero = () => {
           </div>
         </Container>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 0.8 }}
-      >
-        <span className="text-white/30 text-[10px] uppercase tracking-[0.2em] font-medium">
-          Scroll
-        </span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={18} className="text-white/30" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

@@ -8,9 +8,7 @@ const ServicesPage = () => {
     <>
       <Navbar />
       <main>
-        {/* Hero Banner */}
         <HeroBanner />
-        {/* Categories List */}
         <ServiceCategories />
       </main>
       <Footer />
