@@ -18,7 +18,6 @@ const TermsPage = () => {
           titleLine2="Transparent"
           subtitle="These terms define how we operate, protect your data, and ensure a secure and trustworthy experience for every service you book."
           imagePosition="center center"
-          showScrollIndicator={false}
         />
 
         {/* Terms Content */}
