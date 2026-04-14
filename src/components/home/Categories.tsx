@@ -50,7 +50,6 @@ const lineReveal = {
 
 const Categories = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.5 });
 
   return (
     <section
@@ -72,7 +71,9 @@ const Categories = () => {
           className="text-center mb-16 md:mb-20 relative"
           variants={sectionHeader}
           initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+          whileInView="visible"
+          viewport={{ once: true, margin: "-200px" }}
+          // animate={isInView ? "visible" : "hidden"}
         >
           <motion.span
             variants={fadeUp}
@@ -111,7 +112,8 @@ const Categories = () => {
               custom={index}
               variants={cardVariants}
               initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
               className="group relative rounded-2xl overflow-hidden cursor-pointer"
               style={{ minHeight: "340px" }}
             >
@@ -189,9 +191,10 @@ const Categories = () => {
         {/* ─── Bottom CTA ─── */}
         <motion.div
           className="text-center mt-14 md:mt-18"
-          initial={{ opacity: 0, y: 24 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.8, ease }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.4, ease }}
         >
           <Link to="/services">
             <CustomButton
