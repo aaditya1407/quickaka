@@ -9,6 +9,8 @@ import PartnerPage from "./pages/PartnerPage";
 import TermsPage from "./pages/TermsPage";
 import Lenis from "lenis";
 import { useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   useEffect(() => {
@@ -36,6 +38,12 @@ function App() {
 
   return (
     <BrowserRouter>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={3000}
+        pauseOnHover
+        theme="light"
+      />
       <ScrollToTop>
         <Routes>
           <Route path="/" element={<HomePage />} />

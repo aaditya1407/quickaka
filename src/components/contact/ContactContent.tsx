@@ -2,6 +2,7 @@ import Container from "../layout/Container";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import CustomButton from "../ui/CustomButton";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const ContactContent = () => {
   const [formData, setFormData] = useState({
@@ -24,11 +25,11 @@ const ContactContent = () => {
       !formData.service ||
       !formData.message
     ) {
-      // toast.error("Please fill all the fields");
-      alert("Please fill all the fields");
+      toast.error("Please fill all the fields");
       return;
     }
 
+    let toastId: string | number = "";
     try {
       setLoading(true);
 
@@ -39,14 +40,24 @@ const ContactContent = () => {
       const ENTRY_SERVICE = import.meta.env.VITE_GOOGLE_FORM_ENTRY_SERVICE;
       const ENTRY_MESSAGE = import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE;
 
-      //   if (!formUrl || !ENTRY_NAME || !ENTRY_EMAIL || !ENTRY_PHONE || !ENTRY_SERVICE || !ENTRY_MESSAGE) {
-      //    toast({
-      //      title: "Configuration error",
-      //      description: "Form submission not configured. Check env variables.",
-      //      variant: "destructive",
-      //    });
-      //    return
-      //  }
+      toastId = toast.loading("Sending message...");
+
+      if (
+        !formUrl ||
+        !ENTRY_NAME ||
+        !ENTRY_EMAIL ||
+        !ENTRY_PHONE ||
+        !ENTRY_SERVICE ||
+        !ENTRY_MESSAGE
+      ) {
+        toast.update(toastId, {
+          render: "Configuration error. Please try again later.",
+          type: "error",
+          isLoading: false,
+          autoClose: 3000,
+        });
+        return;
+      }
 
       const googleFormData = new URLSearchParams();
       googleFormData.append(ENTRY_NAME, formData.name);
@@ -61,14 +72,12 @@ const ContactContent = () => {
         mode: "no-cors",
       });
 
-      // Because of no-cors the response can't be inspected; assume success:
-      // toast({
-      //   title: "Success",
-      //   description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
-      //   variant: "success",
-      // });
-
-      alert("Message sent successfully!");
+      toast.update(toastId, {
+        render: "Message sent successfully!",
+        type: "success",
+        isLoading: false,
+        autoClose: 3000,
+      });
 
       setFormData({
         name: "",
@@ -79,13 +88,13 @@ const ContactContent = () => {
       });
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to send message. Please try again.");
 
-      // toast({
-      //   title: "Error",
-      //   description: "Something went wrong. Please try again later.",
-      //   variant: "destructive",
-      // });
+      toast.update(toastId, {
+        render: "Failed to send message. Please try again later.",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     } finally {
       setLoading(false);
     }
