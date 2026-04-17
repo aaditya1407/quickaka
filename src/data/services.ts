@@ -22,7 +22,7 @@ export const categories = [
     color: "#3B82F6",
     gradient: "from-blue-500 to-indigo-600",
     image:
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80",
+      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80&auto=format&fit=crop",
   },
   {
     id: "construction-interior",
@@ -42,7 +42,7 @@ export const categories = [
     color: "#8B5CF6",
     gradient: "from-violet-500 to-purple-600",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80",
+      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80&auto=format&fit=crop",
   },
   {
     id: "home-help-personal",
@@ -65,7 +65,7 @@ export const categories = [
     color: "#EC4899",
     gradient: "from-pink-500 to-rose-600",
     image:
-      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&q=80",
+      "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=800&q=80&auto=format&fit=crop",
   },
   {
     id: "professional-legal",
@@ -85,7 +85,7 @@ export const categories = [
     color: "#10B981",
     gradient: "from-emerald-500 to-teal-600",
     image:
-      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80",
+      "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&q=80&auto=format&fit=crop",
   },
   {
     id: "events-lifestyle",
@@ -106,7 +106,7 @@ export const categories = [
     color: "#F59E0B",
     gradient: "from-amber-500 to-orange-600",
     image:
-      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80",
+      "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80&auto=format&fit=crop",
   },
   {
     id: "transport-auto",
