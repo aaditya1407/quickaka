@@ -1,7 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowRight, Plus, Minus } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Container from "../layout/Container";
 import { categories } from "../../data/services";
 import CustomButton from "../ui/CustomButton";
@@ -82,8 +82,18 @@ const lineReveal = {
 
 /* ─── component ─── */
 const ServiceCategories = () => {
+  const location = useLocation();
   const [openId, setOpenId] = useState<string | null>(
     categories[0]?.id ?? null,
+  );
+
+  // Refs for each panel to scroll into view
+  const panelRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const setPanelRef = useCallback(
+    (id: string) => (el: HTMLDivElement | null) => {
+      panelRefs.current[id] = el;
+    },
+    [],
   );
 
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -92,6 +102,27 @@ const ServiceCategories = () => {
   const toggle = (id: string) => {
     setOpenId(id);
   };
+
+  // Read URL hash on mount and open + scroll to matching category
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (!hash) return;
+
+    const match = categories.find((c) => c.id === hash);
+    if (!match) return;
+
+    setOpenId(match.id);
+
+    // Wait for accordion animation to finish, then scroll
+    const timer = setTimeout(() => {
+      panelRefs.current[match.id]?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, [location.hash]);
 
   return (
     <section ref={sectionRef} className="py-20 md:py-28 bg-white relative">
@@ -146,6 +177,7 @@ const ServiceCategories = () => {
 
             return (
               <motion.div
+                ref={setPanelRef(cat.id)}
                 key={cat.id}
                 custom={index}
                 variants={panelVariants}
