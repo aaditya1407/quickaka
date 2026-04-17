@@ -37,6 +37,7 @@ const AboutContent = () => {
               src="/mainLogo.png"
               alt="QuicKaka mascot"
               className="w-72 md:w-96 drop-shadow-lg"
+              loading="lazy"
             />
           </div>
         </div>

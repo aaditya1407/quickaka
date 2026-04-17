@@ -158,6 +158,7 @@ const ContactContent = () => {
                 src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=600&h=300&fit=crop"
                 alt="Customer support"
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
             </div>
           </div>

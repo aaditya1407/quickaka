@@ -31,6 +31,7 @@ const Footer = () => {
                   src="/mainLogo.png"
                   alt="QuicKaka"
                   className="h-24 mb-4"
+                  loading="lazy"
                 />
               </Link>
               <p className="text-blue-200/60 text-sm leading-relaxed mb-3">
