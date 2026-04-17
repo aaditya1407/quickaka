@@ -1,8 +1,96 @@
 import Container from "../layout/Container";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import CustomButton from "../ui/CustomButton";
+import { useState } from "react";
 
 const ContactContent = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // basic validation
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.service ||
+      !formData.message
+    ) {
+      // toast.error("Please fill all the fields");
+      alert("Please fill all the fields");
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const formUrl = import.meta.env.VITE_GOOGLE_FORM_URL;
+      const ENTRY_NAME = import.meta.env.VITE_GOOGLE_FORM_ENTRY_NAME;
+      const ENTRY_PHONE = import.meta.env.VITE_GOOGLE_FORM_ENTRY_PHONE;
+      const ENTRY_EMAIL = import.meta.env.VITE_GOOGLE_FORM_ENTRY_EMAIL;
+      const ENTRY_SERVICE = import.meta.env.VITE_GOOGLE_FORM_ENTRY_SERVICE;
+      const ENTRY_MESSAGE = import.meta.env.VITE_GOOGLE_FORM_ENTRY_MESSAGE;
+
+      //   if (!formUrl || !ENTRY_NAME || !ENTRY_EMAIL || !ENTRY_PHONE || !ENTRY_SERVICE || !ENTRY_MESSAGE) {
+      //    toast({
+      //      title: "Configuration error",
+      //      description: "Form submission not configured. Check env variables.",
+      //      variant: "destructive",
+      //    });
+      //    return
+      //  }
+
+      const googleFormData = new URLSearchParams();
+      googleFormData.append(ENTRY_NAME, formData.name);
+      googleFormData.append(ENTRY_PHONE, formData.phone);
+      googleFormData.append(ENTRY_EMAIL, formData.email);
+      googleFormData.append(ENTRY_SERVICE, formData.service);
+      googleFormData.append(ENTRY_MESSAGE, formData.message);
+
+      await fetch(formUrl, {
+        method: "POST",
+        body: googleFormData,
+        mode: "no-cors",
+      });
+
+      // Because of no-cors the response can't be inspected; assume success:
+      // toast({
+      //   title: "Success",
+      //   description: "Thank you for your inquiry. We'll get back to you within 24 hours.",
+      //   variant: "success",
+      // });
+
+      alert("Message sent successfully!");
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send message. Please try again.");
+
+      // toast({
+      //   title: "Error",
+      //   description: "Something went wrong. Please try again later.",
+      //   variant: "destructive",
+      // });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="py-16 md:py-20 bg-white">
       <Container>
@@ -12,7 +100,7 @@ const ContactContent = () => {
             <h2 className="font-heading text-2xl font-bold text-primary mb-6">
               Send Us a Message
             </h2>
-            <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -21,6 +109,10 @@ const ContactContent = () => {
                   <input
                     type="text"
                     placeholder="Your name"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all"
                   />
                 </div>
@@ -31,6 +123,10 @@ const ContactContent = () => {
                   <input
                     type="tel"
                     placeholder="+91 XXXXX XXXXX"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all"
                   />
                 </div>
@@ -42,6 +138,10 @@ const ContactContent = () => {
                 <input
                   type="email"
                   placeholder="you@email.com"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-border text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all"
                 />
               </div>
@@ -49,7 +149,13 @@ const ContactContent = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Service Needed
                 </label>
-                <select className="w-full px-4 py-3 rounded-xl border border-border text-sm text-gray-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all bg-white">
+                <select
+                  value={formData.service}
+                  onChange={(e) =>
+                    setFormData({ ...formData, service: e.target.value })
+                  }
+                  className="w-full px-4 py-3 rounded-xl border border-border text-sm text-gray-500 outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all bg-white"
+                >
                   <option value="">Select a service category</option>
                   <option>Home Maintenance & Repair</option>
                   <option>Construction & Interior Works</option>
@@ -67,14 +173,19 @@ const ContactContent = () => {
                 <textarea
                   rows={4}
                   placeholder="Tell us what you need..."
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-border text-sm outline-none focus:border-accent focus:ring-2 focus:ring-accent/10 transition-all resize-none"
                 />
               </div>
               <CustomButton
                 type="submit"
                 className="flex items-center gap-2 group/cta"
+                disabled={loading}
               >
-                Send Message{" "}
+                {loading ? "Sending..." : "Send Message"}
                 <Send
                   size={16}
                   className="transition-transform duration-300 group-hover/cta:translate-x-2"
