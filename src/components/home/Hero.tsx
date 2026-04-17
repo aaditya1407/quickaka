@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="relative overflow-hidden min-h-screen flex flex-col items-center justify-center">
       {/* background image */}
       <img
-        src="/background.png"
+        src="/background.webp"
         className="w-full h-full object-cover absolute inset-0"
         alt=""
       />
@@ -21,7 +21,7 @@ const Hero = () => {
         <div className="z-10 relative flex flex-col items-center text-center pt-24 pb-12">
           {/* Title Logo */}
           <motion.img
-            src="/title.png"
+            src="/title.webp"
             alt="QuicKaka"
             className="w-[65%] sm:w-[70%] object-cover drop-shadow-2xl absolute -top-15"
             initial={{ opacity: 0, y: 20 }}

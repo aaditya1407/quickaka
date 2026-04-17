@@ -41,7 +41,7 @@ const Navbar = () => {
           <Link to="/">
             <div className="flex">
               <img
-                src="/mainLogo.png"
+                src="/mainLogo.webp"
                 alt="QuicKaka"
                 className={`w-30 md:w-32 transition-all duration-300 mt-2`}
               />

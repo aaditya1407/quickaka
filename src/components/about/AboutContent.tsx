@@ -34,7 +34,7 @@ const AboutContent = () => {
           </div>
           <div className="flex justify-center">
             <img
-              src="/mainLogo.png"
+              src="/mainLogo.webp"
               alt="QuicKaka mascot"
               className="w-72 md:w-96 drop-shadow-lg"
               loading="lazy"

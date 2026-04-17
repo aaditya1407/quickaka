@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="lg:col-span-1 w-[70%]">
               <Link to="/">
                 <img
-                  src="/mainLogo.png"
+                  src="/mainLogo.webp"
                   alt="QuicKaka"
                   className="h-24 mb-4"
                   loading="lazy"
