@@ -1,19 +1,25 @@
-import { useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
-/**
- * Scrolls to top on every route change.
- * Uses useLayoutEffect so it fires BEFORE the browser paints,
- * ensuring animations see the correct scroll position from the start.
- */
-const ScrollToTop = () => {
+const ScrollToTop = ({ children }: { children: React.ReactNode }) => {
   const { pathname } = useLocation();
+  const [ready, setReady] = useState(false);
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
+  useEffect(() => {
+    setReady(false);
+
+    window.scrollTo({
+      top: 0,
+      behavior: "instant", // important
+    });
+
+    // wait one frame so scroll completes
+    requestAnimationFrame(() => {
+      setReady(true);
+    });
   }, [pathname]);
 
-  return null;
+  return ready ? children : null;
 };
 
 export default ScrollToTop;
