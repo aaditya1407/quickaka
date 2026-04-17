@@ -7,8 +7,33 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import PartnerPage from "./pages/PartnerPage";
 import TermsPage from "./pages/TermsPage";
+import Lenis from "lenis";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2, // smoothness (lower = faster)
+      smoothWheel: true,
+    });
+
+    // Expose globally so ScrollToTop (and other components) can use
+    // lenis.scrollTo() instead of the native window.scrollTo().
+    (window as any).__lenis = lenis;
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      delete (window as any).__lenis;
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <ScrollToTop>
