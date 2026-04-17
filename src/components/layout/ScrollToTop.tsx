@@ -10,7 +10,7 @@ const ScrollToTop = ({ children }: { children: React.ReactNode }) => {
 
     window.scrollTo({
       top: 0,
-      behavior: "instant", // important
+      behavior: "instant",
     });
 
     // wait one frame so scroll completes
