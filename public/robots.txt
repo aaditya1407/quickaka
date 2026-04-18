@@ -1,0 +1,9 @@
+# robots.txt for QuicKaka
+# Allows all search engines to crawl the entire site
+
+User-agent: *
+Allow: /
+Disallow:
+
+# Sitemap location — tells crawlers where to find the full URL list
+Sitemap: https://www.quickaka.com/sitemap.xml

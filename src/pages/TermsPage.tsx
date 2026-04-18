@@ -2,11 +2,18 @@ import Container from "../components/layout/Container";
 import Footer from "../components/layout/Footer";
 import Navbar from "../components/layout/Navbar";
 import PageHero from "../components/layout/PageHero";
+import SEO from "../components/layout/SEO";
 import { Shield } from "lucide-react";
 
 const TermsPage = () => {
   return (
     <>
+      <SEO
+        title="Terms & Conditions"
+        description="Read QuicKaka's terms and conditions — our policies on bookings, payments, data protection, cancellations, and service guarantees for all home services in Bhopal."
+        keywords="QuicKaka terms, terms and conditions, home service policy, booking terms Bhopal, privacy policy, cancellation policy, QuicKaka refund"
+        path="/terms"
+      />
       <Navbar />
       <main>
         {/* Hero Banner */}
