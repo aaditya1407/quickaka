@@ -117,7 +117,7 @@ const ServiceCategories = () => {
     const timer = setTimeout(() => {
       panelRefs.current[match.id]?.scrollIntoView({
         behavior: "smooth",
-        block: "start",
+        block: "center",
       });
     }, 600);
 

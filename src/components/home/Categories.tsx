@@ -107,14 +107,14 @@ const Categories = () => {
         {/* ─── Cards Grid ─── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {categories.map((cat, index) => (
-            // <Link key={cat.id} to={`/services#${cat.id}`}>
+            <Link key={cat.id} to={`/services#${cat.id}`} className={`block h-full ${index === categories.length - 1 ? "lg:col-start-2" : ""}`}>
               <motion.div
                 custom={index}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer"
+                className="group relative rounded-2xl overflow-hidden cursor-pointer h-full"
                 style={{ minHeight: "340px" }}
               >
                 {/* Background Image */}
@@ -182,7 +182,7 @@ const Categories = () => {
                   </div>
                 </div>
               </motion.div>
-            // </Link>
+            </Link>
           ))}
         </div>
 
