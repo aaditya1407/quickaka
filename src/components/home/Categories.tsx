@@ -86,7 +86,7 @@ const Categories = () => {
             variants={fadeUp}
             className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mt-3 leading-tight"
           >
-            37+ <span className="text-accent">Services,</span> One Platform
+            40+ <span className="text-accent">Services,</span> One Platform
           </motion.h2>
 
           <motion.p

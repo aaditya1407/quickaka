@@ -23,8 +23,8 @@ const badges = [
   },
   {
     icon: SquaresFour,
-    label: "37+ Services",
-    stat: "37+",
+    label: "40+ Services",
+    stat: "40+",
     description: "Categories covering every home need",
     gradient: "from-blue-500 to-indigo-600",
   },

@@ -33,10 +33,12 @@ export const categories = [
     stat: "5+",
     services: [
       "Carpenter",
-      "Property Management",
+      "Fall Ceiling",
       "Construction Services",
       "Interior Works",
       "Movers & Packers",
+      "Modular Kitchen",
+      "Building Permission"
     ],
     icon: "Building2",
     color: "#8B5CF6",
@@ -126,6 +128,24 @@ export const categories = [
     image:
       "https://images.unsplash.com/photo-1518614768202-663a3a0ecf59?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
+  {
+    id: "buy-sell-rent",
+    title: "Buy, Sell & Rent",
+    shortTitle: "Property",
+    tagline: "Your Property Partner",
+    description: "Find, sell, or rent properties with trusted professionals who simplify every step.",
+    stat: "3+",
+    services: [
+      "Property Management",
+      "Property Buy",
+      "Sell & Rent",
+    ],
+    icon: "Home",
+    color: "#E11D48",
+    gradient: "from-rose-600 to-red-700",
+    image:
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80&auto=format&fit=crop",
+  },
 ];
 
 export const testimonials = [
@@ -161,7 +181,7 @@ export const testimonials = [
 
 export const whyChooseUs = [
   {
-    title: "37+ Services Under One Roof",
+    title: "40+ Services Under One Roof",
     description:
       "No need to call five different people. From your AC to your legal documents, we handle it all.",
     icon: "LayoutGrid",

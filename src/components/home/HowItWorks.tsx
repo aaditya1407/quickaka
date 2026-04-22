@@ -7,7 +7,7 @@ const steps = [
     number: "01",
     title: "Select Your Service",
     description:
-      "Browse our 37+ categories — from home repairs to personal wellness — and pick exactly what you need.",
+      "Browse our 40+ categories — from home repairs to personal wellness — and pick exactly what you need.",
   },
   {
     icon: UserCheck,
