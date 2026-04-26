@@ -7,6 +7,7 @@ import {
   Users,
 } from "lucide-react";
 import Container from "../layout/Container";
+import SectionHeader from "../ui/SectionHeader";
 
 const goals = [
   {
@@ -35,14 +36,10 @@ const Mission = () => {
   return (
     <section className="py-16 md:py-20 bg-white">
       <Container>
-        <div className="text-center mb-14">
-          <span className="text-accent text-sm font-semibold uppercase tracking-wider">
-            What Drives Us
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2">
-            Mission, Vision & Goals
-          </h2>
-        </div>
+        <SectionHeader
+          badge="What Drives Us"
+          heading="Mission, Vision & Goals"
+        />
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-14">
           {/* Mission */}

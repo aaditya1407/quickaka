@@ -1,34 +1,7 @@
 import { motion } from "framer-motion";
 import Container from "../layout/Container";
 import { RiStarSFill } from "@remixicon/react";
-
-/* ─── shared easing ─── */
-const ease = [0.22, 1, 0.36, 1] as const;
-
-/* ─── header animation variants ─── */
-const sectionHeader = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.4 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease },
-  },
-};
-
-const lineReveal = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1, ease },
-  },
-};
+import SectionHeader from "../ui/SectionHeader";
 
 /* ─── testimonials data ─── */
 const testimonials = [
@@ -66,33 +39,10 @@ const Testimonials = () => {
   return (
     <section className="py-20 md:py-28 bg-surface">
       <Container>
-        {/* Header */}
-        <motion.div
-          className="text-center mb-12 relative"
-          variants={sectionHeader}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-200px" }}
-        >
-          <motion.span
-            variants={fadeUp}
-            className="inline-block text-accent text-sm font-semibold uppercase tracking-[0.2em]"
-          >
-            Testimonials
-          </motion.span>
-
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2"
-          >
-            What Bhopal Says About Us
-          </motion.h2>
-
-          <motion.div
-            variants={lineReveal}
-            className="mt-6 mx-auto h-[3px] w-16 bg-accent origin-left rounded-full"
-          />
-        </motion.div>
+        <SectionHeader
+          badge="Testimonials"
+          heading="What Bhopal Says About Us"
+        />
 
         {/* FIXED RESPONSIVE WRAPPER */}
         <div className="flex flex-wrap items-center justify-center gap-12 mt-10 w-full">

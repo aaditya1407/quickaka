@@ -5,6 +5,7 @@ import {
   SquaresFour,
   MapPinArea,
 } from "@phosphor-icons/react";
+import SectionHeader from "../ui/SectionHeader";
 
 const badges = [
   {
@@ -50,18 +51,11 @@ const TrustBadges = () => {
       />
 
       <Container>
-        {/* Header */}
-        <div className="text-center mb-14 relative z-10">
-          <span className="text-accent text-sm font-semibold uppercase tracking-wider">
-            Trusted & Reliable
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2">
-            Built For You
-          </h2>
-          <p className="mt-3 text-gray-500 max-w-md mx-auto text-sm">
-            Numbers that speak louder than words — here's why Bhopal trusts us.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Trusted & Reliable"
+          heading="Built For You"
+          subtitle="Numbers that speak louder than words — here's why Bhopal trusts us."
+        />
 
         {/* Cards Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center relative z-10">

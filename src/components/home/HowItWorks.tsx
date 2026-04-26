@@ -1,5 +1,6 @@
 import Container from "../layout/Container";
 import { Search, UserCheck, ThumbsUp } from "lucide-react";
+import SectionHeader from "../ui/SectionHeader";
 
 const steps = [
   {
@@ -29,18 +30,11 @@ const HowItWorks = () => {
   return (
     <section className="py-16 md:py-20 bg-surface">
       <Container>
-        {/* Header */}
-        <div className="text-center mb-14">
-          <span className="text-accent text-sm font-semibold uppercase tracking-wider">
-            Simple & Easy
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2">
-            How It Works
-          </h2>
-          <p className="mt-3 text-gray-500 max-w-md mx-auto">
-            Getting professional help for your Bhopal home has never been easier.
-          </p>
-        </div>
+        <SectionHeader
+          badge="Simple & Easy"
+          heading="How It Works"
+          subtitle="Getting professional help for your Bhopal home has never been easier."
+        />
 
         {/* Steps */}
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">

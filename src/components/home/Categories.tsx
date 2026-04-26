@@ -5,27 +5,12 @@ import { ArrowRight } from "lucide-react";
 import Container from "../layout/Container";
 import { categories } from "../../data/services";
 import CustomButton from "../ui/CustomButton";
+import SectionHeader from "../ui/SectionHeader";
 
 /* ─── shared easing ─── */
 const ease = [0.22, 1, 0.36, 1] as const;
 
 /* ─── animation variants ─── */
-const sectionHeader = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.4 },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease },
-  },
-};
-
 const cardVariants = {
   hidden: { opacity: 0, y: 60, scale: 0.95 },
   visible: (i: number) => ({
@@ -38,14 +23,6 @@ const cardVariants = {
       ease,
     },
   }),
-};
-
-const lineReveal = {
-  hidden: { scaleX: 0 },
-  visible: {
-    scaleX: 1,
-    transition: { duration: 1, ease },
-  },
 };
 
 const Categories = () => {
@@ -67,42 +44,12 @@ const Categories = () => {
 
       <Container>
         {/* ─── Section Header ─── */}
-        <motion.div
-          className="text-center mb-16 md:mb-20 relative"
-          variants={sectionHeader}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-200px" }}
-          // animate={isInView ? "visible" : "hidden"}
-        >
-          <motion.span
-            variants={fadeUp}
-            className="inline-block text-accent text-sm font-semibold uppercase tracking-[0.2em]"
-          >
-            What We Offer
-          </motion.span>
-
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl md:text-4xl lg:text-5xl font-extrabold text-primary mt-3 leading-tight"
-          >
-            40+ <span className="text-accent">Services,</span> One Platform
-          </motion.h2>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-4 text-gray-500 max-w-lg mx-auto leading-relaxed"
-          >
-            Everything your Bhopal home needs — from repairs and cleaning to
-            events and legal support — all under one roof.
-          </motion.p>
-
-          {/* Animated accent line */}
-          <motion.div
-            variants={lineReveal}
-            className="mt-6 mx-auto h-[3px] w-16 bg-accent origin-left rounded-full"
-          />
-        </motion.div>
+        <SectionHeader
+          badge="What We Offer"
+          heading="40+"
+          headingAccent="Services, One Platform"
+          subtitle="Everything your Bhopal home needs — from repairs and cleaning to events and legal support — all under one roof."
+        />
 
         {/* ─── Cards Grid ─── */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
