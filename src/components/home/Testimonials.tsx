@@ -1,102 +1,152 @@
-import { useState } from "react";
+import { motion } from "framer-motion";
 import Container from "../layout/Container";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { testimonials } from "../../data/services";
+import { RiStarSFill } from "@remixicon/react";
+
+/* ─── shared easing ─── */
+const ease = [0.22, 1, 0.36, 1] as const;
+
+/* ─── header animation variants ─── */
+const sectionHeader = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.4 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 32 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease },
+  },
+};
+
+const lineReveal = {
+  hidden: { scaleX: 0 },
+  visible: {
+    scaleX: 1,
+    transition: { duration: 1, ease },
+  },
+};
+
+/* ─── testimonials data ─── */
+const testimonials = [
+  {
+    name: "Priya Sharma",
+    quote:
+      '"Booked a deep cleaning service before Diwali. The team was professional, punctual, and thorough. My house looked brand new! Highly recommend QuicKaka."',
+    service: "Home Cleaning • Arera Colony, Bhopal",
+    stars: 5,
+  },
+  {
+    name: "Rajesh Verma",
+    quote:
+      '"Had an urgent electrical issue late evening. The electrician arrived within an hour and fixed everything. Great service at affordable rates — truly the local hero!"',
+    service: "Electrician • MP Nagar, Bhopal",
+    stars: 5,
+  },
+  {
+    name: "Anita Jain",
+    quote:
+      '"Needed a mehndi artist last minute for my sister\'s wedding. QuicKaka connected me with an amazing artist same day. Absolutely delighted with the experience!"',
+    service: "Mehndi Artist • Kolar Road, Bhopal",
+    stars: 5,
+  },
+  {
+    name: "Suresh Patel",
+    quote:
+      '"AC broke down in peak summer. QuicKaka sent a technician within 2 hours. Professional work, fair pricing. This is exactly what Bhopal needed!"',
+    service: "AC Repair • Hoshangabad Road, Bhopal",
+    stars: 5,
+  },
+];
 
 const Testimonials = () => {
-  const [current, setCurrent] = useState(0);
-
-  const prev = () =>
-    setCurrent((c) => (c === 0 ? testimonials.length - 1 : c - 1));
-  const next = () =>
-    setCurrent((c) => (c === testimonials.length - 1 ? 0 : c + 1));
-
-  const testimonial = testimonials[current];
-
   return (
-    <section className="py-16 md:py-20 bg-surface">
+    <section className="py-20 md:py-28 bg-surface">
       <Container>
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-accent text-sm font-semibold uppercase tracking-wider">
+        <motion.div
+          className="text-center mb-12 relative"
+          variants={sectionHeader}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-200px" }}
+        >
+          <motion.span
+            variants={fadeUp}
+            className="inline-block text-accent text-sm font-semibold uppercase tracking-[0.2em]"
+          >
             Testimonials
-          </span>
-          <h2 className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2">
+          </motion.span>
+
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl md:text-4xl font-extrabold text-primary mt-2"
+          >
             What Bhopal Says About Us
-          </h2>
-        </div>
+          </motion.h2>
 
-        {/* Testimonial Card */}
-        <div className="max-w-2xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 md:p-10 border border-border shadow-sm relative">
-            {/* Quote icon */}
-            <Quote
-              size={40}
-              className="text-accent/10 absolute top-6 right-8"
-            />
+          <motion.div
+            variants={lineReveal}
+            className="mt-6 mx-auto h-[3px] w-16 bg-accent origin-left rounded-full"
+          />
+        </motion.div>
 
-            {/* Stars */}
-            <div className="flex gap-0.5 mb-4">
-              {Array.from({ length: testimonial.rating }).map((_, i) => (
-                <Star
-                  key={i}
-                  size={16}
-                  className="text-amber-400 fill-amber-400"
-                />
-              ))}
-            </div>
+        {/* FIXED RESPONSIVE WRAPPER */}
+        <div className="flex flex-wrap items-center justify-center gap-12 mt-10 w-full">
+          {testimonials.map((t, index) => {
+            const cardDelay = index * 0.2;
+            const starBaseDelay = 0.8 + cardDelay;
 
-            {/* Text */}
-            <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-6">
-              "{testimonial.text}"
-            </p>
-
-            {/* Author */}
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="font-heading font-bold text-primary">
-                  {testimonial.name}
-                </p>
-                <p className="text-sm text-gray-400">
-                  {testimonial.service} • {testimonial.location}
-                </p>
-              </div>
-
-              {/* Navigation */}
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={prev}
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
-                  aria-label="Previous testimonial"
+            return (
+              <div
+                key={t.name}
+                className="w-full sm:w-[48%] lg:w-1/3 overflow-hidden"
+              >
+                <motion.div
+                  className="text-center"
+                  initial={{ y: 80, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0.4, 0, 0.2, 1],
+                    delay: cardDelay,
+                  }}
                 >
-                  <ChevronLeft size={16} className="text-gray-500" />
-                </button>
-                <button
-                  onClick={next}
-                  className="w-9 h-9 rounded-full border border-border flex items-center justify-center hover:bg-gray-50 transition-colors cursor-pointer"
-                  aria-label="Next testimonial"
-                >
-                  <ChevronRight size={16} className="text-gray-500" />
-                </button>
-              </div>
-            </div>
-          </div>
+                  {/* stars */}
+                  <div className="flex gap-0.5 mb-6 justify-center">
+                    {Array.from({ length: t.stars }).map((_, i) => (
+                      <motion.span
+                        key={i}
+                        initial={{ opacity: 0, scale: 0 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.3,
+                          delay: starBaseDelay + i * 0.1,
+                          ease: "easeOut",
+                        }}
+                      >
+                        <RiStarSFill size={18} />
+                      </motion.span>
+                    ))}
+                  </div>
 
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  i === current
-                    ? "bg-accent w-6"
-                    : "bg-gray-300 hover:bg-gray-400"
-                }`}
-                aria-label={`Go to testimonial ${i + 1}`}
-              />
-            ))}
-          </div>
+                  {/* ONLY FIXED THIS */}
+                  <p className="lg:text-sm sm:text-base leading-5">{t.quote}</p>
+
+                  <p className="font-semibold font-heading mt-3 text-primary/80">
+                    {t.name}
+                  </p>
+
+                  <p className="text-sm text-gray-600">{t.service}</p>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>
