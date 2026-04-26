@@ -266,7 +266,7 @@ const ContactContent = () => {
                     Working Hours
                   </h4>
                   <p className="text-sm text-gray-500 mt-0.5">
-                    Mon – Sat, 10:00 AM – 6:00 PM
+                    Mon – Sun, 9:00 AM – 8:00 PM
                   </p>
                 </div>
               </div>
