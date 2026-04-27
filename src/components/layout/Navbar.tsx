@@ -41,9 +41,9 @@ const Navbar = () => {
           <Link to="/">
             <div className="flex">
               <img
-                src="/mainLogo.webp"
+                src="/title.webp"
                 alt="QuicKaka"
-                className={`w-30 md:w-32 transition-all duration-300 mt-2`}
+                className={`w-30 md:w-40 transition-all duration-300`}
               />
             </div>
           </Link>
@@ -54,7 +54,7 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 to={link.to}
-                className={`text-sm font-light transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-accent after:transition-all after:duration-300 ${
+                className={`text-sm font-normal transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[1.5px] after:bg-accent after:transition-all after:duration-300 ${
                   location.pathname === link.to
                     ? scrolled
                       ? "text-primary after:w-full"
@@ -71,10 +71,7 @@ const Navbar = () => {
 
           {/* CTA + Mobile Toggle */}
           <div className="flex items-center gap-3">
-            <Link
-              to="/contact"
-              className={`hidden md:inline-flex`}
-            >
+            <Link to="/contact" className={`hidden md:inline-flex`}>
               <CustomButton className="px-5 py-2.5 rounded-xl text-sm">
                 Book a Service
               </CustomButton>
