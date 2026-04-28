@@ -40,7 +40,7 @@ const badges = [
 
 const TrustBadges = () => {
   return (
-    <section className="py-16 md:py-20 bg-surface relative overflow-hidden">
+    <section className="py-16 md:py-20 bg-surface relative overflow-hidden" style={{ zoom: 1.1 }}>
       {/* Subtle background pattern */}
       <div
         className="absolute inset-0 opacity-[0.02]"
