@@ -41,7 +41,10 @@ const Hero = () => {
       <div className="absolute inset-0 bg-linear-to-b from-primary/50 via-primary/30 to-primary/50" />
 
       <Container>
-        <div className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28" style={{ zoom: 1.1 }}>
+        <div
+          className="relative max-w-7xl mx-auto px-6 py-20 lg:py-28"
+          style={{ zoom: 1.1 }}
+        >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* LEFT CONTENT */}
             <div className="text-center lg:text-left">

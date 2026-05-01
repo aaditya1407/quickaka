@@ -35,8 +35,8 @@ const Footer = () => {
                 />
               </Link>
               <p className="text-blue-200/60 text-sm leading-relaxed mb-3">
-                Bhopal ka apna helper. Simplified home & personal services
-                at your doorstep.
+                Bhopal ka apna helper. Simplified home & personal services at
+                your doorstep.
               </p>
               <p className="text-blue-200/40 text-xs mb-5">
                 Associated with Tulsi Adarsh Shiksha Samiti
@@ -103,10 +103,7 @@ const Footer = () => {
               </h4>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
-                  <MapPin
-                    size={16}
-                    className="text-accent mt-0.5 shrink-0"
-                  />
+                  <MapPin size={16} className="text-accent mt-0.5 shrink-0" />
                   <span className="text-sm text-blue-200/60">
                     Bhopal, Madhya Pradesh, India
                   </span>
@@ -146,13 +143,14 @@ const Footer = () => {
             © {new Date().getFullYear()} QuicKaka. All rights reserved.
           </p>
           <p className="text-xs text-blue-200/40">
-            <Link to="/terms" className="text-xs text-blue-200/40 hover:text-white transition-colors">
+            <Link
+              to="/terms"
+              className="text-xs text-blue-200/40 hover:text-white transition-colors"
+            >
               Terms & Conditions
             </Link>
           </p>
-          <p className="text-xs text-blue-200/40">
-            Made with ❤️ in Bhopal
-          </p>
+          <p className="text-xs text-blue-200/40">Made with ❤️ in Bhopal</p>
         </div>
       </Container>
     </footer>

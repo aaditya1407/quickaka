@@ -1,7 +1,4 @@
-import { Link } from "react-router-dom";
 import Container from "../layout/Container";
-import { ArrowRight } from "lucide-react";
-import CustomButton from "../ui/CustomButton";
 
 const data = [
   {
@@ -48,21 +45,6 @@ const HowItWorksPartner = () => {
                 </div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link to="/contact">
-              <CustomButton
-                size="lg"
-                className="flex items-center gap-2 mt-6 mx-auto group/cta"
-              >
-                Apply to Partner{" "}
-                <ArrowRight
-                  size={16}
-                  className="transition-transform duration-300 group-hover/cta:translate-x-2"
-                />
-              </CustomButton>
-            </Link>
           </div>
         </div>
       </Container>

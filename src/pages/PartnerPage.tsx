@@ -4,6 +4,7 @@ import SEO from "../components/layout/SEO";
 import PartnerHero from "../components/partner/PartnerHero";
 import WhyPartner from "../components/partner/WhyPartner";
 import HowItWorksPartner from "../components/partner/HowItWorksPartner";
+import PartnerForm from "../components/partner/PartnerForm";
 
 const PartnerPage = () => {
   return (
@@ -19,6 +20,7 @@ const PartnerPage = () => {
         <PartnerHero />
         <WhyPartner />
         <HowItWorksPartner />
+        <PartnerForm />
       </main>
       <Footer />
     </>
