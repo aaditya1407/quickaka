@@ -33,6 +33,17 @@ jobs:
           npm install --no-audit --no-fund
 
       - name: Build
+        env:
+          VITE_GOOGLE_FORM_URL: ${{ secrets.VITE_GOOGLE_FORM_URL }}
+          VITE_GOOGLE_FORM_ENTRY_NAME: ${{ secrets.VITE_GOOGLE_FORM_ENTRY_NAME }}
+          VITE_GOOGLE_FORM_ENTRY_PHONE: ${{ secrets.VITE_GOOGLE_FORM_ENTRY_PHONE }}
+          VITE_GOOGLE_FORM_ENTRY_EMAIL: ${{ secrets.VITE_GOOGLE_FORM_ENTRY_EMAIL }}
+          VITE_GOOGLE_FORM_ENTRY_SERVICE: ${{ secrets.VITE_GOOGLE_FORM_ENTRY_SERVICE }}
+          VITE_GOOGLE_FORM_ENTRY_MESSAGE: ${{ secrets.VITE_GOOGLE_FORM_ENTRY_MESSAGE }}
+          VITE_PARTNER_GOOGLE_FORM_URL: ${{ secrets.VITE_PARTNER_GOOGLE_FORM_URL }}
+          VITE_PARTNER_GOOGLE_FORM_ENTRY_NAME: ${{ secrets.VITE_PARTNER_GOOGLE_FORM_ENTRY_NAME }}
+          VITE_PARTNER_GOOGLE_FORM_ENTRY_PHONE: ${{ secrets.VITE_PARTNER_GOOGLE_FORM_ENTRY_PHONE }}
+          VITE_PARTNER_GOOGLE_FORM_ENTRY_MESSAGE: ${{ secrets.VITE_PARTNER_GOOGLE_FORM_ENTRY_MESSAGE }}
         run: |
           npm run build
           echo "OUT_DIR=dist" >> $GITHUB_ENV
