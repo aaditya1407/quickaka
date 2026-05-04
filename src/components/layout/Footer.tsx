@@ -18,6 +18,21 @@ const companyLinks = [
   { label: "Contact Us", to: "/contact" },
 ];
 
+const socials = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/61575431036584/?http_ref=eyJ0cyI6MTc3Nzg4ODgwMDAwMCwiciI6IiJ9",
+  },
+  {
+    name: "Instagram",
+    href: "",
+  },
+  {
+    name: "YouTube",
+    href: "",
+  },
+];
+
 const Footer = () => {
   return (
     <footer className="bg-primary text-white">
@@ -43,15 +58,17 @@ const Footer = () => {
               </p>
               {/* Social */}
               <div className="flex gap-3">
-                {["Facebook", "Instagram", "YouTube"].map((social) => (
+                {socials.map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.href}
                     className="w-9 h-9 rounded-lg bg-white/10 hover:bg-accent flex items-center justify-center transition-colors duration-200"
-                    aria-label={social}
+                    aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <span className="text-xs font-bold">
-                      {social.charAt(0)}
+                      {social.name.charAt(0)}
                     </span>
                   </a>
                 ))}
