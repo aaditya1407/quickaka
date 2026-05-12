@@ -52,8 +52,8 @@ jobs:
         with:
           publish_dir: ${{ env.OUT_DIR }}
           publish_branch: gh-pages
-          external_repository: BBBSolutions/quickaka-main
+          external_repository: aaditya1407/quickaka-main
           personal_token: ${{ secrets.PUBLIC_REPO_TOKEN }}
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
-          cname: quickaka.the3bsolutions.com
+          cname: quickaka.com
